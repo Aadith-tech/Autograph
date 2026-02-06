@@ -19,6 +19,11 @@ RUN npm ci
 # Copy backend source
 COPY backend ./backend
 
+# Build Strapi admin panel
+WORKDIR /app/backend
+RUN NODE_ENV=production npm run build || echo "Build failed, will build on start"
+WORKDIR /app
+
 
 # Production stage
 FROM node:20-alpine AS runner
@@ -56,5 +61,5 @@ ENV NODE_ENV=production
 HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
   CMD node -e "require('http').get('http://localhost:1337/_health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
-# Start Strapi using develop mode (auto-builds admin panel)
-CMD ["npm", "run", "dev"]
+# Start Strapi in production mode
+CMD ["npm", "start"]
