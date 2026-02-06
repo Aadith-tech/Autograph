@@ -56,5 +56,5 @@ ENV NODE_ENV=production
 HEALTHCHECK --interval=30s --timeout=5s --start-period=60s --retries=3 \
   CMD node -e "require('http').get('http://localhost:1337/_health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"
 
-# Start Strapi using workspace command
-CMD ["npm", "start"]
+# Start Strapi using develop mode (auto-builds admin panel)
+CMD ["npm", "run", "dev"]
