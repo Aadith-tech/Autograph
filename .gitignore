@@ -21,6 +21,7 @@ backend/database/*.db
 .env.local
 .env.*.local
 !.env.example
+railway-secrets.txt
 
 # IDE
 .vscode/

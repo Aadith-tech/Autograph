@@ -255,6 +255,35 @@ AutoGraph/
 
 ---
 
+## 🚢 Deployment Options
+
+### Quick Deploy (Railway - Recommended for testing)
+
+Deploy to Railway in minutes with SQLite:
+
+```bash
+# Generate secrets
+./generate-secrets.sh
+
+# Push to GitHub
+git push
+
+# Deploy on Railway (see RAILWAY-DEPLOY.md)
+```
+
+**Cost:** Free tier available, $5/month for production  
+**Guide:** [RAILWAY-DEPLOY.md](RAILWAY-DEPLOY.md) | [Quick Start](RAILWAY-QUICK-START.md)
+
+### Production Deploy (Kubernetes)
+
+Full production setup with Hetzner Cloud:
+
+- **Cost:** ~€48/month (~97% cheaper than AWS)
+- **Features:** HA cluster, auto-scaling, monitoring
+- **Guide:** [CLOUD-DEPLOYMENT.md](docs/CLOUD-DEPLOYMENT.md)
+
+---
+
 ## 🎓 For Interns
 
 This project is part of the **PearlThoughts DevOps Internship Program**. You're not just learning DevOps—you're **building a startup**.
